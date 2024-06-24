@@ -38,7 +38,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask   allowkill isfloating
        monitor */
     {"Brave", NULL, NULL, 1 << 8, 0, 0, -1},
-    //   { "Github-desktop", NULL, NULL,         1 << 2,       1, 0, -1 }
+   { "Float", NULL, NULL, 0 , 0, 1, -1 },
 };
 
 /* layout(s) */
@@ -93,6 +93,7 @@ static const char *dmenucmd[] = {"dmenu_run_history",
 // static const char *termcmd[] = {"st", NULL};
 static const char *flameguicmd[] = {"flameshot", "gui", NULL};
 static const char *flamescreencmd[] = {"flameshot", "screen", NULL};
+static const char *termcmd[]  = { "st", NULL };
 static const char *tabstcmd[] = {"tabbed", "-r", "2", "st", "-w", "''", NULL};
 
 #include "shift-tools.c"
@@ -100,7 +101,7 @@ static const char *tabstcmd[] = {"tabbed", "-r", "2", "st", "-w", "''", NULL};
 static const Key keys[] = {
     /* modifier                     key        function        argument */
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = dmenucmd}},
-    {MODKEY, XK_Return, spawn, {.v = tabstcmd}},
+    {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_s, spawn, {.v = flamescreencmd}},
     {MODKEY | ShiftMask, XK_s, spawn, {.v = flameguicmd}},
     //	{ MODKEY,                       XK_b,      togglebar,      {0} },
